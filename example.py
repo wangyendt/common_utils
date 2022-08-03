@@ -71,7 +71,8 @@ if __name__ == '__main__':
     stream_handler.setFormatter(formatter)
     logger.addHandler(stream_handler)
 
+    root = easygui.diropenbox(msg='请选择存储数据的文件夹根目录：') or r'D:\work\data\phone_data\imu_sensor_fusion\data'
     paths = dict()
-    paths['log_root'] = easygui.diropenbox(msg='请选择存储数据的文件夹根目录：') or r'D:\work\data\phone_data\imu_sensor_fusion\data\log'
-    paths['result_root'] = os.path.join(os.path.dirname(paths['log_root']), 'res')
+    paths['log_root'] = os.path.join(root, 'log')
+    paths['result_root'] = os.path.join(root, 'res')
     main()
